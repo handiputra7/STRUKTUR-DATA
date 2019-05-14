@@ -1,0 +1,508 @@
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+#include <cstdlib>
+
+using namespace std;
+
+	struct data{
+		string nama;
+		string nohp;
+		string golDarah;
+		string noKtp;
+		string umur;
+		int idpasien;
+		string jnsklmn;
+		
+				
+} pasien[999];
+	int jumlah;
+
+struct data1{
+		string jns_poli;
+		int kode_dokter;		
+		string rwt;// jenis rawat
+				
+} poli[999];
+	int jumlah1;
+	
+struct data2{//transaksi
+		int thn,bln,hri;
+		//data pasien
+		string nama;
+		string nohp;
+		string golDarah;
+		string noKtp;
+		string umur;
+		int idpasien;
+		string jnsklmn;
+		//data poli
+		string jns_poli;
+		int kode_dokter;		
+		string rwt;
+				
+} transaksi[999];
+	int jumlah2;
+	
+//input data	
+void masuk(){	
+				cout<<"==================INPUT DATA PASIEN======================";
+				cout<<endl;
+				cout<<"                Masukkan Banyak Pasien : ";
+				cin>>jumlah;
+				
+				
+				for (int i=0; i<jumlah; i++){
+					cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+					cout<<"\t Masukan Data KE-"<<i<<endl;					
+					cout<<"1.	Masukkan ID PASIEN(4)   \t: ";
+					cin>>pasien[i].idpasien;
+
+					cout<<"2.	Masukkan Nama           \t: ";
+					cin>>pasien[i].nama;
+
+					cout<<"3.	Golongan Darah 		\t: ";
+					cin>>pasien[i].golDarah;
+
+					cout<<"4.	Masukkan No KTP         \t: ";
+					cin>>pasien[i].noKtp;
+					
+					cout<<"5.	Masukan Umur            \t:";
+					cin>>pasien[i].umur;
+					
+					cout<<"6.	Masukan No Hp           \t:";
+					cin>>pasien[i].nohp;
+					
+					cout<<"7.	Masuakn Jenis Kelamin   \t:";
+					cin>>pasien[i].jnsklmn;
+					cout<<endl;
+					cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+				}
+			    }
+//AKHIR INPUT DATA
+				
+//MENAMPILKAN DATA
+			void tampil()
+				{
+				system("cls");
+				cout<<"Data yang anda masukkan :"<<endl;
+				cout<<"======================================================"<<endl;
+				for(int i=0;i<jumlah;i++)
+				
+				{
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+				cout<<"\t Hasil Data KE-"<<i<<endl;					
+				cout<<"1.	NAMA          :"<<pasien[i].nama<<endl;
+				cout<<"2.	Jenis Kelamin :"<<pasien[i].jnsklmn<<endl;
+				cout<<"3.	UMUR          :"<<pasien[i].umur<<endl;
+				cout<<"4.	DARAH         :"<<pasien[i].golDarah<<endl;
+				cout<<"5.	KTP           :"<<pasien[i].noKtp<<endl;
+				cout<<"6.	ID            :"<<pasien[i].idpasien<<endl;				
+				cout<<"7.	Ho. Hp        :"<<pasien[i].nohp<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+				}
+				}
+//AKHIR TAMPIL DATA
+		
+				void update()
+				{
+//update data
+				cout<<"==================UPDATE DATA PASIEN======================";
+				cout<<endl;
+				cout<<"                Masukkan Data Pasien Baru Ke- : ";
+				cin>>jumlah;
+				
+				
+				for (int i=0; i<jumlah; i++){
+					
+					cout<<"\t Masukan Data KE-"<<i<<endl;
+					cout<<"1.	Masukkan ID PASIEN(4) \t: ";
+					cin>>pasien[i].idpasien;
+
+					cout<<"2.	Masukkan Nama \t: ";
+					cin>>pasien[i].nama;
+
+					cout<<"3.	Golongan Darah \t: ";
+					cin>>pasien[i].golDarah;
+
+					cout<<"4.	Masukkan No KTP \t: ";
+					cin>>pasien[i].noKtp;
+					
+					cout<<"5.	Masukan Umur \t:";
+					cin>>pasien[i].umur;
+					
+					cout<<"6.	Masukan No Hp \t:";
+					cin>>pasien[i].nohp;
+					
+					cout<<"7.	Masuakn Jenis Kelamin \t:";
+					cin>>pasien[i].jnsklmn;
+				}
+			    }
+//akhir data
+void hapusdata()
+{int x,y,i,a;
+ cout<<"Hapus Data KE-"<<i;
+ cin>>x;
+ y=x-1;
+ a--;
+ for(int i=y;i<a;i++)
+ {pasien[i]=pasien[i+1];}
+ system ("cls");
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<x<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system ("cls");
+}
+				
+		//menu satu		
+		int main1(){
+		int pilih;
+		do{system("cls");
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<"\t1. Input data pasien"<<endl;
+		cout<<"\t2. Tampilkan data pasien"<<endl;
+		cout<<"\t3. Update data pasien"<<endl;
+		cout<<"\t4. Hapus data pasien"<<endl;
+		cout<<"\t0. keluar"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<"\tPilih Menu : ";
+		cin>>pilih;
+	
+
+		switch(pilih){
+			case 0:
+				cout<<"Keluar"<<endl;
+				break;
+			case 1: masuk();break;
+			case 2: tampil();break;
+			case 3: update();break;
+			case 4: hapusdata();break;
+			default:
+				cout<<"Menu Tidak Tersedia";
+		}
+		system("pause");
+	}while(pilih != 0);
+			};
+			
+	
+	
+	//awal poli
+	void datapoli()
+				{
+	//input data
+				cout<<"==================INPUT DATA POLI======================";
+				cout<<endl;
+				cout<<"                Masukkan Banyak PASIEN : ";
+				cin>>jumlah1;
+				
+				
+				for (int i=0; i<jumlah1; i++){									
+				cout<<"\t Masukan Data KE-"<<i<<endl;						
+			    cout<<"Daftar Poli	:"<<endl;
+				cout<<"1. POLI UMUM"<<endl;
+				cout<<"2. POLI KEBIDANAN"<<endl;
+				cout<<"3. POLI GIGI"<<endl;
+				cout<<"4. POLI BEDAH"<<endl;
+				cout<<"5. POLI SYARAF"<<endl;
+				cout<<"6. POLI PENYAKIT DALAM"<<endl;
+				cout<<"7. POLI ANAK"<<endl;
+				cout<<"saat input wajib menggunakan tanda hunung(_atau-)!!"<<endl;
+				cout<<"1. Masukan Nama Poli \t:";
+				cin>>poli[i].jns_poli;
+				cout<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+					
+				cout<<"Masukan Kode Dokter :";
+				cin>>poli[i].kode_dokter;
+				cout<<endl;
+				cout<<"Daftar Layanan Rawat"<<endl;
+				cout<<"1. Pelayanan rawat jalan"<<endl;
+				cout<<"2. Pelayanan gawat darurat"<<endl;
+				cout<<"3. Pelayanan satu hari"<<endl;
+				cout<<"4. Rawat Inap"<<endl;
+				cout<<"5. Home care"<<endl;
+				cout<<"saat input wajib menggunakan tanda hunung(_atau-)!!"<<endl;
+				cout<<"2. Pelayanan Rawat \t:";
+				cin>>poli[i].rwt;
+				cout<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+									
+				}
+			    }
+//AKHIR INPUT DATA
+				
+//MENAMPILKAN DATA
+			void tampil1()				
+				{
+				system("cls");
+				cout<<"Data Yang Anda Masukan :"<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+				for(int i=0;i<jumlah1;i++)
+				
+				{	
+				cout<<"\t Hasil Data KE-"<<i<<endl;				
+				cout<<"1. Nama Poli \t:"<<poli[i].jns_poli;
+				cout<<endl;
+				cout<<"2. Pelayanan Rawat \t:"<<poli[i].rwt;
+				cout<<endl;
+				cout<<"3. Kode Dokter \t:"<<poli[i].kode_dokter<<endl;
+				cout<<endl;				
+				}
+				}
+//AKHIR TAMPIL DATA
+		
+				void update1()
+				{
+//update data
+				cout<<"==================UPDATE DATA POLI======================";
+				cout<<endl;			
+				
+				
+				for (int i=0; i<jumlah1; i++){
+				
+				cout<<"\t Masukan Data KE-"<<i<<endl;		
+			    cout<<"Daftar Poli	:"<<endl;
+				cout<<"1. POLI UMUM"<<endl;
+				cout<<"2. POLI KEBIDANAN"<<endl;
+				cout<<"3. POLI GIGI"<<endl;
+				cout<<"4. POLI BEDAH"<<endl;
+				cout<<"5. POLI SYARAF"<<endl;
+				cout<<"6. POLI PENYAKIT DALAM"<<endl;
+				cout<<"7. POLI ANAK"<<endl;
+				cout<<"saat input wajib menggunakan tanda hunung(_atau-)!!"<<endl;
+				cout<<"1. Masukan Nama Poli \t:";
+				cin>>poli[i].jns_poli;
+				cout<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+					
+				cout<<"Daftar Layanan Rawat"<<endl;
+				cout<<"1. Pelayanan rawat jalan"<<endl;
+				cout<<"2. Pelayanan gawat darurat"<<endl;
+				cout<<"3. Pelayanan satu hari"<<endl;
+				cout<<"4. Rawat Inap"<<endl;
+				cout<<"5. Home care"<<endl;
+				cout<<"saat input wajib menggunakan tanda hunung(_atau-)!!"<<endl;
+				cout<<"2. Pelayanan Rawat \t:";
+				cin>>poli[i].rwt;
+				cout<<endl;
+					
+				cout<<"Kode Dokter \t:";
+				cin>>poli[i].kode_dokter;
+				cout<<endl;
+				cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+									
+				}
+			    }
+//akhir data
+void hapusdata1()
+{int x,y,i,a;
+ cout<<"Hapus Data KE-";
+ cin>>x;
+ y=x-1;
+ a--;
+ for(int i=y;i<a;i++)
+ {poli[i]=poli[i+1];}
+ system ("cls");
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<x<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system ("cls");
+}
+				
+		//menu 2		
+		int main2(){
+		int pilih;
+		do{system("cls");
+		cout<<"Aplikasi Pendaftaran Pasien Pada Puskesmas"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<"	=	1. Input Poli		-"<<endl;
+		cout<<"	=	2. Tampil Poli		-"<<endl;
+		cout<<"	=	3. Update Poli		-"<<endl;
+		cout<<"	=	4. Hapus Poli		-"<<endl;
+		cout<<"	=	0. keluar			-"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<" Pilih Menu : ";
+		cin>>pilih; 
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<endl;
+		
+
+		switch(pilih){
+			case 0:
+				cout<<"Keluar"<<endl;
+				break;
+			case 1: datapoli();break;
+			case 2: tampil1();break;
+			case 3: update1();break;
+			case 4: hapusdata1();break;
+			default:
+				cout<<"Menu Tidak Tersedia";
+		}
+		system("pause");
+	}while(pilih != 0);
+			};
+			
+			
+	//awal transaksi
+	void masuk2()
+				{
+	//input data
+				cout<<"==================INPUT DATA POLI======================";
+				cout<<endl;
+				cout<<"                Masukkan Banyak Transaksi : ";
+				cin>>jumlah2;
+				
+				
+				for (int i=0; i<jumlah2; i++){
+									
+				cout<<"\t Masukan Data KE-"<<i<<endl;						
+			    
+					cout<<"1. Tahun(yyy):";
+					cin>>transaksi[i].thn;					
+					cout<<endl;
+					
+					cout<<"2. Bulan(mm):";
+					cin>>transaksi[i].bln;
+					cout<<endl;
+					
+					cout<<"3. hari(dd):";
+					cin>>transaksi[i].hri;
+					cout<<endl;
+					cout<<"========================================="<<endl;
+									
+				}
+			    }
+//AKHIR INPUT DATA
+				
+//MENAMPILKAN DATA
+
+			void tampil2()				
+				{
+					int index;
+					
+					
+				system("cls");
+				cout<<"pilih yang akan di tampilkan";
+				cin>>index;
+				cout<<"Data Yang Anda Masukan :"<<endl;
+				cout<<"======================================================"<<endl;
+				
+				for(int i=0;i<jumlah2;i++)
+				{	
+				cout<<"\t Hasil Data KE-"<<i<<endl;				
+				cout<<"\t1. Tahun \t:"<<transaksi[i].thn;
+				cout<<endl;
+				cout<<"\t2. Bulan \t:"<<transaksi[i].bln;
+				cout<<endl;
+				cout<<"\t3. Hari \t:"<<transaksi[i].hri<<endl;				
+				cout<<endl;	
+				cout<<"\t. tampil pasien \t:"<<pasien[i].nama=pasien[index].nama
+				<<endl;
+				cout<<"\t. id pasien \t:"<<transaksi[i].idpasien=pasien[index].idpasien;
+				cout<<"\t. poli \t"<<transaksi[i].poli=poli[index].kode_dokter;			
+				}
+				}
+//AKHIR TAMPIL DATA
+		
+				void update2()
+				{
+//update data
+				cout<<"==================UPDATE DATA POLI======================";
+				cout<<endl;			
+				
+				
+				for (int i=0; i<jumlah2; i++){
+				
+				cout<<"\t Masukan Data KE-"<<i<<endl;						
+			    
+					cout<<"\t1. Tahun(yyy):";
+					cin>>transaksi[i].thn;					
+					cout<<endl;
+					
+					cout<<"\t2. Bulan(mm):";
+					cin>>transaksi[i].bln;
+					cout<<endl;
+					
+					cout<<"\t3. hari(dd):";
+					cin>>transaksi[i].hri;
+					cout<<endl;
+					
+					cout<<"Data pasien :";
+					
+					cout<<"========================================="<<endl;
+				}
+			    }
+//akhir data
+void hapusdata2()
+{int x,y,i,a;
+ cout<<"Hapus Data KE-";
+ cin>>x;
+ y=x-1;
+ a--;
+ for(int i=y;i<a;i++)
+ {transaksi[i]=transaksi[i+1];}
+ system ("cls");
+ cout<<"\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-"<<x<<" Terhapus ++++++++++++++++++++++++++++++";
+ getch();system ("cls");
+}
+				
+		//menu 3		
+		int main3(){
+			int pilih;
+				do{system("cls");
+		cout<<"Aplikasi Pendaftaran Pasien Pada Puskesmas"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<"	=	1. Input Transaksi		-"<<endl;
+		cout<<"	=	2. Tampil Transaksi		-"<<endl;
+		cout<<"	=	3. Update Transaksi		-"<<endl;
+		cout<<"	=	4. Hapus Transaksi		-"<<endl;
+		cout<<"	=	0. keluar			-"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<" Pilih Menu : ";
+		cin>>pilih; 
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<endl;
+		
+
+		switch(pilih){
+			case 0:
+				cout<<"Keluar"<<endl;
+				break;
+			case 1: masuk2();break;
+			case 2: tampil2();break; tampil(); break; tampil1(); break;
+			case 3: update2();break;
+			case 4: hapusdata2();break;
+			default:
+				cout<<"Menu Tidak Tersedia";
+		}
+		system("pause");
+	}while(pilih != 0);
+			};
+			
+//menu tampilnan
+int main(){
+			int pilih;
+				do{system("cls");
+		cout<<"Aplikasi Pendaftaran Pasien Pada Puskesmas"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<"	=	1. Data Pasien		-"<<endl;
+		cout<<"	=	2. Data Poli		-"<<endl;
+		cout<<"	=	3. Data Transaksi		-"<<endl;		
+		cout<<"	=	0. keluar			-"<<endl;
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<" Pilih Menu : ";
+		cin>>pilih; 
+		cout<<"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"<<endl;
+		cout<<endl;
+		
+
+		switch(pilih){
+			case 0:
+				cout<<"Keluar"<<endl;
+				break;
+			case 1: main1();break;
+			case 2: main2();break;
+			case 3: main3();break;
+			
+			default:
+				cout<<"Menu Tidak Tersedia";
+		}
+		system("pause");
+	}while(pilih != 0);
+			};
